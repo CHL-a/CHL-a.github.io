@@ -1,0 +1,11 @@
+services:
+  # A Docker web service
+  - type: web
+    name: public_apis
+    env: node
+    repo: https://github.com/CHL-a/chl-a.github.io.git
+    rootDir: ./application/
+    buildCommand: npm run build
+    startCommand: npm start
+    numInstances: 1
+    plan: free
