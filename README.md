@@ -5,3 +5,4 @@ Very cool webservice with multiple apis for you to pick. See `/application/route
 # Web Hosting Services Templates
 [![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/template/b5Ev3e?referralCode=Qe9uPK)
 
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy)
