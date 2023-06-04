@@ -7,4 +7,5 @@ services:
     rootDir: ./application/
     buildCommand: npm run build
     startCommand: npm start
-    numInstances: 3 # optional (defaults to 1)
+    numInstances: 1
+    plan: free
