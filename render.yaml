@@ -3,7 +3,8 @@ services:
   - type: web
     name: public_apis
     env: node
-    repo: https://github.com/render-examples/webdis.git # optional
+    repo: https://github.com/CHL-a/chl-a.github.io.git
     rootDir: application
-    dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
+    buildCommand: npm run build
+    startCommand: npm start
     numInstances: 3 # optional (defaults to 1)
