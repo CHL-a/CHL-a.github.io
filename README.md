@@ -1,3 +1,3 @@
-# (chl-a.github.io)[chl-a.github.io-foo]
+# chl-a.github.io
 
-Test github website, content soon
+Test github (website)[chl-a.github.io], content soon
