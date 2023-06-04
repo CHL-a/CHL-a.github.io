@@ -1,0 +1,9 @@
+services:
+  # A Docker web service
+  - type: web
+    name: public_apis
+    env: node
+    repo: https://github.com/render-examples/webdis.git # optional
+    rootDir: application
+    dockerCommand: ./webdis.sh # optional (defaults to Dockerfile command)
+    numInstances: 3 # optional (defaults to 1)
