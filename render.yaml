@@ -4,7 +4,7 @@ services:
     name: public_apis
     env: node
     repo: https://github.com/CHL-a/chl-a.github.io.git
-    rootDir: /application/
+    rootDir: ./application/
     buildCommand: npm run build
     startCommand: npm start
     numInstances: 3 # optional (defaults to 1)
