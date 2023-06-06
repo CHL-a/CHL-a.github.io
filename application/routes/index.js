@@ -6,8 +6,9 @@ router.get('/', function(req, res, next) {
 	res.render('index', { title: 'Express' });
 });
 
-router.get('/foo', (req,res,next)=>{
-	res.send('caught')
-})
+// test webpage
+router.get('/foo', (req,res,next)=>res.send('caught'))
+
+
 
 module.exports = router;
