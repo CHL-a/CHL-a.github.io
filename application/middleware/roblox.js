@@ -104,7 +104,7 @@ module.exports = {
 		if (json_object.errors)
 			return res.status(412)
 				.json({
-					message: 'First url request failed:',
+					message: `url request failed. id=${req.id}`,
 					response: json_object
 				})
 
@@ -126,13 +126,12 @@ module.exports = {
 	 */
 	sendImageUrlToRouter: (req,_,next)=>{
 		if(req.old_type == 1)
-			return next('router')
+			return next('route')
 		next()
 	},
 
 	/**
 	 * in: req.location_url
-	 * req.id_information
 	 * out: req.model_object
 	 * @param {Request} req 
 	 * @param {Response} res 
@@ -175,7 +174,7 @@ module.exports = {
 	 * @param {Response} res 
 	 * @param {NextFunction} next 
 	 */
-	mutateToTexture: async(req,res,next)=>{
+	mutateToTexture: (req,res,next)=>{
 		// pre
 		if (!req.model_object)
 			return res.status(412)
@@ -207,12 +206,16 @@ module.exports = {
 			target_instance.class_name == 'Pants' && 
 				old_type == 12 || 
 			target_instance.class_name == 'Shirt' &&
-				old_type == 13
+				old_type == 11
 				// ... 
 			))
 			return res.status(500)
 				.json({
-					message: 'Mismatched instance class_name with old_type'
+					message: `Mismatched instance class_name with old_type, got old_type=${
+						old_type
+					}, class_name=${
+						target_instance.class_name
+					}`
 				})
 
 		var property = null
@@ -227,15 +230,12 @@ module.exports = {
 				break;
 
 			case 'Pants':
-				property = 'PantsTexture'
+				property = 'PantsTemplate'
 				break
 			
 			case 'Shirt':
-				property = 'ShirtTexture'
+				property = 'ShirtTemplate'
 				break
-
-			default:
-				break;
 		}
 
 		if (!property)
@@ -249,8 +249,9 @@ module.exports = {
 			.properties
 			[property])
 			
+		console.log(target_instance.properties,property)
 
-		var regex_found = value.match(/\d+/)
+		var regex_found = value.match(/\d+$/)
 
 		if (!regex_found)
 			return res.status(412)
